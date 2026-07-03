@@ -66,10 +66,6 @@ CLASS lcl_employee_controller IMPLEMENTATION.
   * METHOD load_employee
   *----------------------------------------------------------------------*
   METHOD load_employee.
-    " Select single employee details into work fields using Open SQL
-    SELECT SINGLE * FROM zems_t_employee
-      INTO CORRESPONDING FIELDS OF TABLE @DATA(lt_emp) " (Simulated for target structure mapping)
-      WHERE emp_id = @iv_emp_id.
 
     SELECT SINGLE emp_id, first_name, last_name, gender, dob, mobile,
                   email, dep_id, designation, salary, waers, join_date,
