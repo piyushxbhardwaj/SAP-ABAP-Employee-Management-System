@@ -3,6 +3,7 @@
 ![ABAP](https://img.shields.io/badge/Language-ABAP-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![SAP](https://img.shields.io/badge/SAP-ABAP-blue)
+![Status](https://img.shields.io/badge/Status-Portfolio%20Project-orange)
 
 A comprehensive SAP ABAP Employee Management System built to demonstrate core SAP development concepts including Module Pool Programming, SAP Dictionary, OO ALV, Smart Forms, authorization checks, and Business Communication Services.
 
@@ -23,6 +24,20 @@ A comprehensive SAP ABAP Employee Management System built to demonstrate core SA
                    │
             Database Tables
 ```
+
+---
+
+## ⚙️ Prerequisites
+
+To deploy, compile, and run this system, you need access to:
+* **SAP NetWeaver Application Server ABAP** (Standard Trial/Developer Edition)
+* **SAP GUI** Desktop Client
+* Standard SAP Transactions:
+  * **`SE80` / `SE38`**: Program Development & Include Management
+  * **`SE11`**: Data Dictionary & View Setup
+  * **`SM30` / `SE54`**: Table Maintenance Views & Table Maintenance Generator
+  * **`SMARTFORMS`**: Print Forms Designer
+  * **`PFCG`**: Role & Profile Management
 
 ---
 
@@ -101,7 +116,7 @@ Comprehensive modular SAP ABAP implementation including multiple DDIC objects, M
 
 ## 🎓 Learning Outcomes
 
-Through this portfolio implementation, I mastered the following SAP ABAP engineering concepts:
+Through this project, I gained hands-on experience with the following SAP ABAP engineering concepts:
 * **Dictionary Modeling**: Designing primary/foreign key relational schemas, configuring buffering settings for read-heavy tables, and managing lock queues (`SM12`) to prevent data inconsistency during concurrent accesses.
 * **Modern Object-Oriented ABAP**: Moving away from legacy procedural `FORM` routines by encapsulating transactional logic, validations, and database accesses inside local controller classes.
 * **Advanced Document Formatting & Distribution**: Extracting OTF spools from Smart Forms, parsing binary strings to PDF formats, and managing email queues (`SOST`) via SAP Business Communication Services.
