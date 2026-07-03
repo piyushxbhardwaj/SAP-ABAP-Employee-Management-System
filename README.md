@@ -1,10 +1,13 @@
 # SAP ABAP Employee Management System (EMS)
 
-An enterprise-grade Human Resources (HR) application built entirely on the **SAP ABAP** stack. This project showcases advanced, resume-ready SAP development skills suitable for junior/mid-level developer portfolios, demonstrating practices used in real-world SAP ERP implementations.
+A comprehensive SAP ABAP Employee Management System built to demonstrate core SAP development concepts including Module Pool Programming, SAP Dictionary, OO ALV, Smart Forms, authorization checks, and Business Communication Services.
 
 ---
 
-## 📷 Application Screenshots & Mockups
+## 📷 Application UI Mockups (Concept Layouts)
+
+> [!NOTE]
+> The screenshots below represent high-fidelity user interface layouts designed to mirror standard SAP GUI (Enjoy/Signature themes) and Smart Form PDF print structures. When you test and deploy the system on your active SAP NetWeaver application server, you can replace these placeholder templates with your live GUI screen snapshots.
 
 ### SAP GUI Screens
 * **Dashboard (Screen 100)**: Features aggregate calculations (Total, Active, Inactive, Average Salary) and operations mapping.
@@ -51,6 +54,7 @@ An enterprise-grade Human Resources (HR) application built entirely on the **SAP
 
 ## 📊 Project Metrics
 
+Comprehensive modular SAP ABAP implementation including multiple DDIC objects, Module Pool screens, ALV reports, Smart Forms, and supporting documentation:
 * **Custom Tables**: 4 (`ZEMS_T_EMPLOYEE`, `ZEMS_T_DEPT`, `ZEMS_T_AUDIT`, `ZEMS_T_LOG`)
 * **Maintenance Views**: 1 (`ZEMS_V_DEPT` with TMG enabled)
 * **Message Classes**: 1 (`ZEMS_MSG` in `SE91`)
@@ -58,8 +62,7 @@ An enterprise-grade Human Resources (HR) application built entirely on the **SAP
 * **SAP GUI Screens**: 2 layouts (Dashboard Screen 100, CRUD Form Screen 200)
 * **Interactive ALV Reports**: 5 sub-reports managed via a single selection screen
 * **Smart Forms**: 3 custom layouts
-* **Modular Code Structure**: 1 Main Module Pool, 4 Includes, 1 Local OO ABAP Controller Class, and 25+ modular routines
-* **Total Code Volume**: ~3,500 lines of fully commented ABAP code
+* **Modular Code Structure**: 1 Main Module Pool, 4 Includes, 1 Local OO ABAP Controller Class, and 25+ reusable subroutines
 
 ---
 
