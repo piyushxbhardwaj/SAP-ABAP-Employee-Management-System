@@ -4,6 +4,25 @@ This guide details how to import and configure the Employee Management System (E
 
 ---
 
+## 🏗️ Deployment Flow Diagram
+
+```mermaid
+graph TD
+    A[1. SE80 Package: ZEMS] --> B[2. SE11: Custom Domains / Elements]
+    B --> C[3. SE11: Tables ZEMS_T_DEPT / EMPLOYEE / AUDIT]
+    C --> D[4. SE91: Message Class ZEMS_MSG]
+    D --> E[5. SE51: Screen Painter Screens 100 / 200]
+    E --> F[6. SE41: PF-STATUS GUI Layouts]
+    F --> G[7. SE93: Create T-Codes ZEMS_CRUD / ZEMS_REP]
+    G --> H[8. SNRO: Create Number Ranges ZEMS_NR_EP / ZEMS_NR_AD]
+    H --> I[9. SMARTFORMS: Design Profile / Salary Slip Templates]
+    I --> J[10. PFCG: Configure Admin / Viewer User Roles]
+    J --> K[11. SE80: Activate Entire Package & Main Programs]
+    K --> L[12. SE38: Seed Mock Data & Run Go-Live Tests]
+```
+
+---
+
 ## Step 1: Package Creation (`SE80` / `SE21`)
 1. Open Transaction `SE20` or `SE80`.
 2. Create a new Package named `ZEMS`.
@@ -85,17 +104,39 @@ Define two number range intervals:
 ---
 
 ## Step 9: Roles & Authorizations (`PFCG` / `SU21`)
-1. Create Authorization Fields and Object in `SU21`:
-   * Field: `DEP_ID`, Field: `ACTVT`
-   * Object: `Z_EMS_AUTH`
-2. Open Transaction `PFCG`.
-3. Create Role: `ZEMS_ADMIN`
-   * Add Transaction Codes: `ZEMS_CRUD`, `ZEMS_REP`, `SM30`.
-   * Add Authorization Object `Z_EMS_AUTH` with Activity `01`, `02`, `03`, `06` and Department `*` (All).
-4. Create Role: `ZEMS_VIEWER`
-   * Add Transaction Codes: `ZEMS_REP` (Only).
-   * Add Authorization Object `Z_EMS_AUTH` with Activity `03` (Display only).
-5. Assign roles to users in `SU01`.
+1. Create Custom Authorization Fields in `SU21` (if not pre-existing):
+   * Field: `DEP_ID` (Length: 8, Type: CHAR)
+   * Field: `ACTVT` (Length: 2, Type: CHAR, references standard Activity field)
+2. Define custom Authorization Object `Z_EMS_AUTH` under object class `HR` (Human Resources):
+   * Add fields: `ACTVT` and `DEP_ID`.
+3. Open Transaction `PFCG` (Role Maintenance):
+   * Create Role: `ZEMS_ADMIN`
+     * Menu tab: Add T-Codes `ZEMS_CRUD`, `ZEMS_REP`, `SM30`.
+     * Authorizations tab: Click **Change Authorization Data**, insert object `Z_EMS_AUTH`.
+     * Configure Values: `ACTVT` = `01` (Create), `02` (Change), `03` (Display), `06` (Delete); `DEP_ID` = `*` (All Departments).
+     * Click **Generate** to compile the profile.
+   * Create Role: `ZEMS_VIEWER`
+     * Menu tab: Add T-Code `ZEMS_REP`.
+     * Authorizations tab: Insert object `Z_EMS_AUTH`.
+     * Configure Values: `ACTVT` = `03` (Display); `DEP_ID` = `*`.
+     * Click **Generate**.
+4. Assign roles to active users in `SU01` (User Maintenance).
+
+---
+
+## 📦 Transport Management & Buffering Configuration
+
+### 1. Transport Requests (TR) Sequence
+When moving EMS between system landscapes (DEV -> QA -> PROD), release and import transport requests in this order:
+1. **Workbench Request**: Holds all repository objects (Tables, Domains, Data Elements, Programs, Screens, Smart Forms, Lock Objects).
+2. **Customizing Request**: Holds role menu bindings, transaction code assignments, and Table Maintenance TMG configurations.
+*Note: Number Range intervals (`SNRO`) are client-dependent and must be manually maintained in target clients or moved via dedicated customizing transports.*
+
+### 2. Number Range Buffering Settings (`SNRO`)
+In transaction `SNRO` for object `ZEMS_NR_EP`, set the buffering options under `Edit -> Change`:
+* **Number of Numbers in Buffer**: `10`
+* **Buffer Strategy**: Main Memory Buffering (Recommended for high-frequency CRUD transactions to minimize DB lookup overhead. If strict gapless tracking is required by auditing, select No Buffering).
+
 
 ---
 
