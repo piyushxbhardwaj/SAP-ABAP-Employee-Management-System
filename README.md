@@ -4,6 +4,24 @@ A comprehensive SAP ABAP Employee Management System built to demonstrate core SA
 
 ---
 
+## 🏗️ System Architecture Flow
+
+```text
+       SAP GUI Presentation Layer
+                   │
+         Module Pool (PBO/PAI)
+                   │
+       Business Logic Class (OO ABAP)
+                   │
+               Open SQL
+                   │
+        SAP Data Dictionary (DDIC)
+                   │
+            Database Tables
+```
+
+---
+
 ## 📷 Application UI Mockups (Concept Layouts)
 
 > [!NOTE]
