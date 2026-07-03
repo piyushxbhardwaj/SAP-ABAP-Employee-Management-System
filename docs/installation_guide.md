@@ -96,3 +96,13 @@ Define two number range intervals:
    * Add Transaction Codes: `ZEMS_REP` (Only).
    * Add Authorization Object `Z_EMS_AUTH` with Activity `03` (Display only).
 5. Assign roles to users in `SU01`.
+
+---
+
+## Step 10: Troubleshooting & Validation Transactions
+During testing and transport import verification on a live ABAP system, utilize the following administrative transactions:
+* **`ST22` (ABAP Runtime Errors)**: Analyze system dumps or trace unexpected runtime failures.
+* **`SU53` (Authorization Failure Analysis)**: If user actions fail or block access, execute `/nSU53` immediately to identify missing permissions for custom authorization object `Z_EMS_AUTH` or activity `ACTVT`.
+* **`SLG1` (Application Log Viewer)**: Enter Object `ZEMS_LOG` and Subobject `CRUD` to view system warnings and transaction logs written by the controller class.
+* **`SM12` (Lock Entry Display)**: Monitor locked rows during testing to ensure lock objects `EZEMS_EMPLOYEE` and `EZEMS_DEPT` are correctly locking and unlocking records.
+
