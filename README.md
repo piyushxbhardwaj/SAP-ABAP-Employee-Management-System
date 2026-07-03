@@ -7,6 +7,9 @@
 
 A comprehensive SAP ABAP Employee Management System built to demonstrate core SAP development concepts including Module Pool Programming, SAP Dictionary, OO ALV, Smart Forms, authorization checks, and Business Communication Services.
 
+> [!NOTE]
+> **Disclaimer:** This repository is intended as a portfolio project. The UI images are conceptual mockups, and some SAP artifacts (such as Smart Forms and Screen Painter layouts) are represented through specifications because they are created graphically within SAP tools. The project should be validated in a SAP ABAP environment before production use.
+
 ---
 
 ## 🏗️ System Architecture Flow
@@ -42,9 +45,6 @@ To deploy, compile, and run this system, you need access to:
 ---
 
 ## 📷 Application UI Mockups (Concept Layouts)
-
-> [!NOTE]
-> The UI images are conceptual mockups. They can be replaced with screenshots from a running SAP ABAP system after deployment and testing.
 
 ### SAP GUI Screens
 * **Dashboard (Screen 100)**: Features aggregate calculations (Total, Active, Inactive, Average Salary) and operations mapping.
