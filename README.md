@@ -4,6 +4,30 @@ An enterprise-grade Human Resources (HR) application built entirely on the **SAP
 
 ---
 
+## 📷 Application Screenshots & Mockups
+
+### SAP GUI Screens
+* **Dashboard (Screen 100)**: Features aggregate calculations (Total, Active, Inactive, Average Salary) and operations mapping.
+  ![Dashboard](docs/screenshots/dashboard_scr100.png)
+  
+* **Employee Data Entry Form (Screen 200)**: Demonstrates field locking logic, mandatory inputs verification, and a photobox container.
+  ![Employee Form](docs/screenshots/employee_scr200.png)
+  
+* **OO ALV Grid Report Dashboard**: Features interactive zebra stripes, cell hotspot links for drilldown navigation, and status-based row coloring (Green = Active, Red = Inactive).
+  ![ALV Report](docs/screenshots/alv_report.png)
+
+### Smart Forms Printable Outputs
+* **Employee Profile (A4 Portrait)**: Features company logo placeholder and Code 128 barcode format.
+  ![Employee Profile](docs/screenshots/sf_profile.png)
+  
+* **Employee ID Badge (Wallet Size)**: Optimized layout for PVC printing with a profile face placeholder and QR code generation.
+  ![Employee ID Card](docs/screenshots/sf_id_card.png)
+  
+* **Salary Statement Pay Slip**: Layout separating earnings and deductions, calculating net totals, and converting values to text representations.
+  ![Salary Slip](docs/screenshots/sf_salary_slip.png)
+
+---
+
 ## 🚀 Key Features
 
 * **Dialog Programming (Module Pools)**: Custom multi-screen SAP GUI interface featuring:
